@@ -1,0 +1,118 @@
+<?php
+// +----------------------------------------------------------------------+
+// | BoletoPhp - Versão Beta                                              |
+// +----------------------------------------------------------------------+
+// | Este arquivo está disponível sob a Licença GPL disponível pela Web   |
+// | em http://pt.wikipedia.org/wiki/GNU_General_Public_License           |
+// | Você deve ter recebido uma cópia da GNU Public License junto com     |
+// | esse pacote; se não, escreva para:                                   |
+// |                                                                      |
+// | Free Software Foundation, Inc.                                       |
+// | 59 Temple Place - Suite 330                                          |
+// | Boston, MA 02111-1307, USA.                                          |
+// +----------------------------------------------------------------------+
+
+// +----------------------------------------------------------------------+
+// | Originado do Projeto BBBoletoFree que tiveram colaborações de Daniel |
+// | William Schultz e Leandro Maniezo que por sua vez foi derivado do	  |
+// | PHPBoleto de João Prado Maia e Pablo Martins F. Costa				        |
+// | 																	                                    |
+// | Se vc quer colaborar, nos ajude a desenvolver p/ os demais bancos :-)|
+// | Acesse o site do Projeto BoletoPhp: www.boletophp.com.br             |
+// +----------------------------------------------------------------------+
+
+// +----------------------------------------------------------------------+
+// | Equipe Coordenação Projeto BoletoPhp: <boletophp@boletophp.com.br>   |
+// | Desenvolvimento Boleto Real: Juan Basso         		                  |
+// +----------------------------------------------------------------------+
+if(isset($_REQUEST['numeracao'])) {
+$i = $_REQUEST['numeracao'];
+
+$NOSSO_NUMERO = '2009'.$i;
+$NUM_DOCUMENTO = '09'.$i;
+#CONCURSO
+$NUM_INSCRICAO = '2009'.$i;
+
+// ------------------------- DADOS DINÂMICOS DO SEU CLIENTE PARA A GERAÇÃO DO BOLETO (FIXO OU VIA GET) -------------------- //
+// Os valores abaixo podem ser colocados manualmente ou ajustados p/ formulário c/ POST, GET ou de BD (MySql,Postgre,etc)	//
+
+// DADOS DO BOLETO PARA O SEU CLIENTE
+//$dias_de_prazo_para_pagamento = 5;
+$taxa_boleto = 1.90;
+//$data_venc = date("d/m/Y", time() + ($dias_de_prazo_para_pagamento * 86400));  // Prazo de X dias OU informe data: "13/04/2006"; 
+$hoje = date("Y-m-d");
+if ($hoje < '2009-06-15') {
+	$valor_cobrado = "20,00";
+	$data_venc = time() + 172800;
+	$data_venc = date("d/m/Y", $data_venc);
+} else {
+	$valor_cobrado = "30,00";
+	$data_venc = '17/06/2009';
+}
+
+$valor_cobrado = "30,00";
+$data_venc = '17/06/2009';
+
+
+//$valor_cobrado = "20,00"; //$_REQUEST['VALOR_PAGAR']; //"20,00"; // Valor - REGRA: Sem pontos na milhar e tanto faz com "." ou "," ou com 1 ou 2 ou sem casa decimal
+$valor_cobrado = str_replace(",", ".",$valor_cobrado);
+//$valor_boleto=number_format($valor_cobrado+$taxa_boleto, 2, ',', '');
+$valor_boleto=number_format($valor_cobrado, 2, ',', '');
+
+
+
+$dadosboleto["nosso_numero"] = '00000'.$NOSSO_NUMERO; //"0000000123456";  // Nosso numero - REGRA: Máximo de 13 caracteres!
+$dadosboleto["numero_documento"] = $NUM_DOCUMENTO; //"1234567";	// Num do pedido ou do documento
+$dadosboleto["data_vencimento"] = $data_venc; // Data de Vencimento do Boleto - REGRA: Formato DD/MM/AAAA
+$dadosboleto["data_documento"] = date("d/m/Y"); // Data de emissão do Boleto
+$dadosboleto["data_processamento"] = date("d/m/Y"); // Data de processamento do boleto (opcional)
+$dadosboleto["valor_boleto"] = $valor_boleto; 	// Valor do Boleto - REGRA: Com vírgula e sempre com duas casas depois da virgula
+
+// DADOS DO SEU CLIENTE
+$dadosboleto["sacado"] = ''; //$_REQUEST['NOME']; //"FACULDADE CATÓLICA DO TOCANTINS";
+$dadosboleto["endereco1"] = ''; //$_REQUEST['ENDERECO']; //"Endereço do seu Cliente";
+$dadosboleto["endereco2"] = ''; //$_REQUEST['CIDADE'].' - '.$_REQUEST['UF'].' - '.$_REQUEST['CEP']; //"Cidade - Estado -  CEP: 00000-000";
+
+// INFORMACOES PARA O CLIENTE
+$demosntrativo1 = 'PROCESSO SELETIVO 2009/2';
+
+$dadosboleto["demonstrativo1"] = $demonstrativo1; //"PROCESSO SELETIVO 2009/1";
+$dadosboleto["demonstrativo2"] = 'NUMERO DE INSCRIÇÃO: Nº '.$NUM_INSCRICAO; //"Mensalidade referente a nonon nonooon nononon<br>Taxa bancária - R$ ".number_format($taxa_boleto, 2, ',', '');
+$dadosboleto["demonstrativo3"] = 'APÓS O PAGAMENTO RETIRE SEU COMPROVANTE DE INSCRIÇÃO<br>NO SITE WWW.CATOLICA-TO.EDU.BR'; //"BoletoPhp - http://www.boletophp.com.br";
+$dadosboleto["instrucoes1"] = 'SENHOR(A) CAIXA, NÃO RECEBER APÓS O VENCIMENTO'; //'NUMERO DE INSCRICAO: Nº '.$NUM_INSCRICAO; //$demonstrativo1; //"- Sr. Caixa, cobrar multa de 2% após o vencimento";
+$dadosboleto["instrucoes2"] = 'CONCEDER DESCONTO DE R$ 10,00'; //"- Receber até 10 dias após o vencimento";
+$dadosboleto["instrucoes3"] = 'SENHOR(A) CANDIDATO, APÓS O PAGAMENTO RETIRE SEU COMPROVANTE DE INSCRIÇÃO'; //"- Em caso de dúvidas entre em contato conosco: xxxx@xxxx.com.br";
+$dadosboleto["instrucoes4"] = 'NO SITE WWW.CATOLICA-TO.EDU.BR'; //"&nbsp; Emitido pelo sistema Projeto BoletoPhp - www.boletophp.com.br";
+
+// DADOS OPCIONAIS DE ACORDO COM O BANCO OU CLIENTE
+$dadosboleto["quantidade"] = "";
+$dadosboleto["valor_unitario"] = "";
+$dadosboleto["aceite"] = "N";		
+$dadosboleto["especie"] = "R$";
+$dadosboleto["especie_doc"] = "ME";
+
+
+// --------------- DADOS FIXOS DE CONFIGURAÇÃO DO SEU BOLETO --------------- //
+
+
+// DADOS DA SUA CONTA - REAL
+$dadosboleto["agencia"] = "0932"; // Num da agencia, sem digito
+$dadosboleto["conta"] = "2025252"; 	// Num da conta, sem digito
+$dadosboleto["carteira"] = "57";  // Código da Carteira
+
+// SEUS DADOS
+$dadosboleto["identificacao"] = "FACULDADE CATÓLICA DO TOCANTINS";
+$dadosboleto["cpf_cnpj"] = "00.331.801/0002-10";
+$dadosboleto["endereco"] = "Av. Teotônio Segurado - 1402 Sul Cj. 01 - (63) 3221-2100";
+$dadosboleto["cidade_uf"] = "PALMAS / TO";
+$dadosboleto["cedente"] = "FACULDADE CATÓLICA DO TOCANTINS";
+
+// NÃO ALTERAR!
+include("include/funcoes_real.php"); 
+include("include/layout_fichadeinscricao_real.php");
+echo '<script>window.print();</script>';
+echo '<meta http-equiv="refresh" content="5;url='.$_SERVER['PHP_SELF'].'?numeracao='.($i+1).'" />';
+} else {
+	echo '<form action="'.$_SERVER['PHP_SELF'].'?numeracao=1500" method="post"><input type="submit" value="gerar"></form>';
+}
+?>

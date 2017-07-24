@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<dwsync>
+<file name="fckcontextmenu.js" server="ftp.santoserocha.com.br//public_html/" local="131333015126097384" remote="131011020000000000" Dst="1" />
+<file name="fckdocumentfragment_gecko.js" server="ftp.santoserocha.com.br//public_html/" local="131333015126417392" remote="131011020000000000" Dst="1" />
+<file name="fckdocumentfragment_ie.js" server="ftp.santoserocha.com.br//public_html/" local="131333015135919083" remote="131011020000000000" Dst="1" />
+<file name="fckdomrange.js" server="ftp.santoserocha.com.br//public_html/" local="131333015137219129" remote="131011020000000000" Dst="1" />
+<file name="fckdomrange_gecko.js" server="ftp.santoserocha.com.br//public_html/" local="131333015146799409" remote="131011020000000000" Dst="1" />
+<file name="fckdomrange_ie.js" server="ftp.santoserocha.com.br//public_html/" local="131333015147461473" remote="131011020000000000" Dst="1" />
+<file name="fckeditingarea.js" server="ftp.santoserocha.com.br//public_html/" local="131333015160159934" remote="131011020000000000" Dst="1" />
+<file name="fckelementpath.js" server="ftp.santoserocha.com.br//public_html/" local="131333015160500151" remote="131011020000000000" Dst="1" />
+<file name="fckenterkey.js" server="ftp.santoserocha.com.br//public_html/" local="131333015162531510" remote="131011020000000000" Dst="1" />
+<file name="fckevents.js" server="ftp.santoserocha.com.br//public_html/" local="131333015173757978" remote="131011020000000000" Dst="1" />
+<file name="fckicon.js" server="ftp.santoserocha.com.br//public_html/" local="131333015174197992" remote="131011020000000000" Dst="1" />
+<file name="fckiecleanup.js" server="ftp.santoserocha.com.br//public_html/" local="131333015174557999" remote="131011020000000000" Dst="1" />
+<file name="fckimagepreloader.js" server="ftp.santoserocha.com.br//public_html/" local="131333015187471577" remote="131011020000000000" Dst="1" />
+<file name="fckmenublock.js" server="ftp.santoserocha.com.br//public_html/" local="131333015187991616" remote="131011020000000000" Dst="1" />
+<file name="fckkeystrokehandler.js" server="ftp.santoserocha.com.br//public_html/" local="131333015188471619" remote="131011020000000000" Dst="1" />
+<file name="fckmenublockpanel.js" server="ftp.santoserocha.com.br//public_html/" local="131333015201070396" remote="131011020000000000" Dst="1" />
+<file name="fckmenuitem.js" server="ftp.santoserocha.com.br//public_html/" local="131333015201620768" remote="131011020000000000" Dst="1" />
+<file name="fckpanel.js" server="ftp.santoserocha.com.br//public_html/" local="131333015202901622" remote="131011020000000000" Dst="1" />
+<file name="fckspecialcombo.js" server="ftp.santoserocha.com.br//public_html/" local="131333015215328125" remote="131011020000000000" Dst="1" />
+<file name="fckplugin.js" server="ftp.santoserocha.com.br//public_html/" local="131333015215728140" remote="131011020000000000" Dst="1" />
+<file name="fckstyledef.js" server="ftp.santoserocha.com.br//public_html/" local="131333015216088147" remote="131011020000000000" Dst="1" />
+<file name="fckstyledef_gecko.js" server="ftp.santoserocha.com.br//public_html/" local="131333015228801984" remote="131011020000000000" Dst="1" />
+<file name="fckstyledef_ie.js" server="ftp.santoserocha.com.br//public_html/" local="131333015229292306" remote="131011020000000000" Dst="1" />
+<file name="fckstylesloader.js" server="ftp.santoserocha.com.br//public_html/" local="131333015229722589" remote="131011020000000000" Dst="1" />
+<file name="fcktoolbarbreak_gecko.js" server="ftp.santoserocha.com.br//public_html/" local="131333015242154662" remote="131011020000000000" Dst="1" />
+<file name="fcktoolbar.js" server="ftp.santoserocha.com.br//public_html/" local="131333015242669364" remote="131011020000000000" Dst="1" />
+<file name="fcktoolbarbreak_ie.js" server="ftp.santoserocha.com.br//public_html/" local="131333015243167197" remote="131011020000000000" Dst="1" />
+<file name="fcktoolbarbutton.js" server="ftp.santoserocha.com.br//public_html/" local="131333015257204873" remote="131011020000000000" Dst="1" />
+<file name="fcktoolbarbuttonui.js" server="ftp.santoserocha.com.br//public_html/" local="131333015258755902" remote="131011020000000000" Dst="1" />
+<file name="fcktoolbarfontformatcombo.js" server="ftp.santoserocha.com.br//public_html/" local="131333015259926697" remote="131011020000000000" Dst="1" />
+<file name="fcktoolbarfontscombo.js" server="ftp.santoserocha.com.br//public_html/" local="131333015267658527" remote="131011020000000000" Dst="1" />
+<file name="fcktoolbarfontsizecombo.js" server="ftp.santoserocha.com.br//public_html/" local="131333015271560644" remote="131011020000000000" Dst="1" />
+<file name="fcktoolbarpanelbutton.js" server="ftp.santoserocha.com.br//public_html/" local="131333015272265141" remote="131011020000000000" Dst="1" />
+<file name="fcktoolbarspecialcombo.js" server="ftp.santoserocha.com.br//public_html/" local="131333015284949616" remote="131011020000000000" Dst="1" />
+<file name="fcktoolbarstylecombo.js" server="ftp.santoserocha.com.br//public_html/" local="131333015285349622" remote="131011020000000000" Dst="1" />
+<file name="fckw3crange.js" server="ftp.santoserocha.com.br//public_html/" local="131333015286461179" remote="131011020000000000" Dst="1" />
+<file name="fckxml_gecko.js" server="ftp.santoserocha.com.br//public_html/" local="131333015299528333" remote="131011020000000000" Dst="1" />
+<file name="fckxml_ie.js" server="ftp.santoserocha.com.br//public_html/" local="131333015299928329" remote="131011020000000000" Dst="1" />
+</dwsync>
